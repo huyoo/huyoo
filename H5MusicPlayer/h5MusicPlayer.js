@@ -48,173 +48,6 @@
         "img/18587244069690667.jpg", "img/19095218439644352.jpg", "img/109951163039378044.jpg",
         "img/109951163078696706.jpg", "img/109951163092271021.jpg", "img/109951163092536973.jpg"];
 
-    function Music(url, name, image, singer) {
-        this.url = url;
-        this.name = name;
-        this.image = image;
-        this.singer = singer;
-    }
-
-    function MusicManager() {
-        var musicList = songList,
-            duration = 0,//总时长
-            index = 0,//当前歌曲序号
-            loop = 0,//0列表循环 1单曲循环 2列表随机
-            music = musicList[0],
-            list = [],
-            header = {
-                image: menuInfoCtrl.img,
-                musicName: menuInfoCtrl.name,
-                singer: menuInfoCtrl.singer
-            };
-        var timer;
-        this.getLength = function () {
-            return musicList.length;
-        };
-        /*****init player******/
-        this.init = function () {
-            audio.src = music.url;
-            //audio.volume = 50;
-            /** 歌曲列表**/
-            for (var i=0 ;i < musicList.length ;i++){
-                menu.append("<li>"+ musicList[i].name +"</li>");
-                //list[i] = (musicList[i].name)
-            }
-            /**init info**/
-            this.initInfo();
-        };
-        this.initInfo = function () {
-            header.image.attr("src", music.image);
-            header.musicName.html(music.name);
-            header.singer.html(music.singer);
-            return this;
-        };
-        /*******  player control  *******/
-        this.playMusic = function () {
-            var g = this;
-            clearTimeout(timer);
-            audio.play();
-            basePlayCtrl.playBtn.hide();
-            basePlayCtrl.pauseBtn.show();
-            setTimeout( function(){
-                duration = audio.duration;
-                playSettingCtrl.duration.html(changeTimeType(duration));
-            }, 400);
-            timer = setInterval(this.setCurrentTime,500);
-            return g;
-        };
-        this.pauseMusic = function () {
-            audio.pause();
-            basePlayCtrl.pauseBtn.hide();
-            basePlayCtrl.playBtn.show();
-            clearTimeout(timer);
-            return this;
-        };
-        /**
-         * 播放完毕 state=false 单曲循环时重复播放
-         * 点击事件 state=true 单曲循环时进入后续播放
-         * @param state
-         * @returns {MusicManager}
-         */
-        this.nextMusic = function (state) {
-            if (loop === 0 || (loop === 1 && state)){
-                index === musicList.length-1 ? index= 0 : ++index;
-                audio.src = musicList[index].url;
-            }else if (loop === 2){
-                index = Math.floor(Math.random() * musicList.length);
-                audio.src = musicList[index].url;
-            }
-            this.playMusic();
-            return this;
-        };
-        this.preMusic = function () {
-            index === 0? index = musicList.length-1 : --index;
-            audio.src = musicList[index].url;
-            this.playMusic();
-            return this;
-        };
-        /****** 循环模式设置 ******/
-        this.setLoop = function () {
-            ++loop===3? loop = 0: loop;
-            switch (loop){
-                case 0:
-                    playSettingCtrl.playModel.removeClass("fa-random").addClass("fa-refresh")
-                        .attr("title","全部循环");
-                    break;
-                case 1:
-                    playSettingCtrl.playModel.removeClass("fa-refresh").addClass("fa-circle-o")
-                        .attr("title","单曲循环");
-                    break;
-                case 2:
-                    playSettingCtrl.playModel.removeClass("fa-circle-o").addClass("fa-random")
-                        .attr("title","随机播放");
-                    break;
-            }
-        };
-        /*******  列表控制  *******/
-        this.setList = function () {
-            //console.log(menu);
-            return this;
-        };
-        this.addMusic = function (arg) {
-            var res = true;
-            for (var i=0; i<musicList.length;i++){
-                if(arg.name == musicList[i].name){//判断是否已存在
-                    res = false;
-                    break;
-                }
-            }
-            if (res){
-                musicList.push(arg);
-                menu.append("<li>"+ arg.name +"</li>");
-            }
-        };
-        /******* set info 歌曲信息显示*******/
-        this.setInfo = function () {
-            music = musicList[index];
-            header.image.attr("src", music.image);
-            header.musicName.html(music.name);
-            header.singer.html(music.singer);
-            return this;
-        };
-        /******* set progress 进度显示*******/
-        this.updateProBar = function (arg) {
-            var progress = (arg/duration) * 100;
-            playSettingCtrl.currentBar.css("width", progress+"%");
-            return this;
-        };
-        this.setCurrentTime = function () {
-            var currentTime = audio.currentTime, setter;
-            setter = changeTimeType(currentTime);
-            playSettingCtrl.currentTime.html(setter);
-            musicManager.updateProBar(currentTime);
-            return this;
-        };
-        /*******  清空歌单  *******/
-        this.cleanPlayCtrl = function () {
-            audio.src = "";
-            basePlayCtrl.pauseBtn.hide();
-            basePlayCtrl.playBtn.show();
-            return this;
-        };
-        this.cleanInfo = function () {
-            header.image.attr("src", "img/u=3196947741,580496132&fm=27&gp=0.jpg");
-            header.musicName.html("列表没有歌曲可播放");
-            header.singer.html("列表没有歌曲可播放");
-            return this;
-        };
-        this.cleanList = function () {
-            musicList = [];
-            menu.html("");
-            return this;
-        };
-        /**  音量控制  **/
-        this.setVolume = function (arg) {
-            audio.volume = arg;
-            return this;
-        };
-    }
-
     var musicManager = new MusicManager();
     musicManager.init();
 
@@ -353,6 +186,175 @@
         return {
             "left": left,
             "top": top
+        };
+    }
+
+    function Music(url, name, image, singer) {
+        this.url = url;
+        this.name = name;
+        this.image = image;
+        this.singer = singer;
+    }
+
+    function MusicManager() {
+        var musicList = songList,
+            duration = 0,//总时长
+            index = 0,//当前歌曲序号
+            loop = 0,//0列表循环 1单曲循环 2列表随机
+            music = musicList[0],
+            list = [],
+            header = {
+                image: menuInfoCtrl.img,
+                musicName: menuInfoCtrl.name,
+                singer: menuInfoCtrl.singer
+            };
+        var timer;
+        this.getLength = function () {
+            return musicList.length;
+        };
+        /*****init player******/
+        this.init = function () {
+            audio.src = music.url;
+            /** 歌曲列表**/
+            for (var i=0 ;i < musicList.length ;i++){
+                menu.append("<li>"+ musicList[i].name +"</li>");
+                //list[i] = (musicList[i].name)
+            }
+            /**init info**/
+            this.initInfo();
+        };
+        this.initInfo = function () {
+            header.image.attr("src", music.image);
+            header.musicName.html(music.name);
+            header.singer.html(music.singer);
+            return this;
+        };
+        /*******  player control  *******/
+        this.playMusic = function () {
+            var g = this;
+            clearTimeout(timer);
+            basePlayCtrl.playBtn.hide();
+            basePlayCtrl.pauseBtn.show();
+
+            audio.addEventListener("canplaythrough",function () {
+                audio.play();
+            });
+
+            setTimeout( function(){
+                duration = audio.duration;
+                playSettingCtrl.duration.html(changeTimeType(duration));
+            }, 400);
+            timer = setInterval(this.setCurrentTime,500);
+            return g;
+        };
+        this.pauseMusic = function () {
+            audio.pause();
+            basePlayCtrl.pauseBtn.hide();
+            basePlayCtrl.playBtn.show();
+            clearTimeout(timer);
+            return this;
+        };
+        /**
+         * 播放完毕 state=false 单曲循环时重复播放
+         * 点击事件 state=true 单曲循环时进入后续播放
+         * @param state
+         * @returns {MusicManager}
+         */
+        this.nextMusic = function (state) {
+            if (loop === 0 || (loop === 1 && state)){
+                index === musicList.length-1 ? index= 0 : ++index;
+                audio.src = musicList[index].url;
+            }else if (loop === 2){
+                index = Math.floor(Math.random() * musicList.length);
+                audio.src = musicList[index].url;
+            }
+            this.playMusic();
+            return this;
+        };
+        this.preMusic = function () {
+            index === 0? index = musicList.length-1 : --index;
+            audio.src = musicList[index].url;
+            this.playMusic();
+            return this;
+        };
+        /****** 循环模式设置 ******/
+        this.setLoop = function () {
+            ++loop===3? loop = 0: loop;
+            switch (loop){
+                case 0:
+                    playSettingCtrl.playModel.removeClass("fa-random").addClass("fa-refresh")
+                        .attr("title","全部循环");
+                    break;
+                case 1:
+                    playSettingCtrl.playModel.removeClass("fa-refresh").addClass("fa-circle-o")
+                        .attr("title","单曲循环");
+                    break;
+                case 2:
+                    playSettingCtrl.playModel.removeClass("fa-circle-o").addClass("fa-random")
+                        .attr("title","随机播放");
+                    break;
+            }
+        };
+        /*******  列表控制  *******/
+        this.setList = function () {
+            return this;
+        };
+        this.addMusic = function (arg) {
+            var res = true;
+            for (var i=0; i<musicList.length;i++){
+                if(arg.name == musicList[i].name){//判断是否已存在
+                    res = false;
+                    break;
+                }
+            }
+            if (res){
+                musicList.push(arg);
+                menu.append("<li>"+ arg.name +"</li>");
+            }
+        };
+        /******* set info 歌曲信息显示*******/
+        this.setInfo = function () {
+            music = musicList[index];
+            header.image.attr("src", music.image);
+            header.musicName.html(music.name);
+            header.singer.html(music.singer);
+            return this;
+        };
+        /******* set progress 进度显示*******/
+        this.updateProBar = function (arg) {
+            var progress = (arg/duration) * 100;
+            playSettingCtrl.currentBar.css("width", progress+"%");
+            return this;
+        };
+        this.setCurrentTime = function () {
+            var currentTime = audio.currentTime, setter;
+            setter = changeTimeType(currentTime);
+            playSettingCtrl.currentTime.html(setter);
+            musicManager.updateProBar(currentTime);
+            return this;
+        };
+        /*******  清空歌单  *******/
+        this.cleanPlayCtrl = function () {
+            audio.src = "";
+            basePlayCtrl.pauseBtn.hide();
+            basePlayCtrl.playBtn.show();
+            return this;
+        };
+        this.cleanInfo = function () {
+            header.image.attr("src", "img/u=3196947741,580496132&fm=27&gp=0.jpg");
+            header.musicName.html("列表没有歌曲可播放");
+            header.singer.html("列表没有歌曲可播放");
+            return this;
+        };
+        this.cleanList = function () {
+            musicList = [];
+            menu.html("");
+            return this;
+        };
+        /**  音量控制  **/
+        this.setVolume = function (arg) {
+            audio.volume = arg;
+            return this;
         };
     }
 })();
