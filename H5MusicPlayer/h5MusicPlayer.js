@@ -233,12 +233,9 @@
         this.playMusic = function () {
             var g = this;
             clearTimeout(timer);
-
-            audio.addEventListener("canplaythrough",function () {
-                basePlayCtrl.playBtn.hide();
-                basePlayCtrl.pauseBtn.show();
-                audio.play();
-            });
+            basePlayCtrl.playBtn.hide();
+            basePlayCtrl.pauseBtn.show();
+            audio.play();
 
             setTimeout( function(){
                 duration = audio.duration;
