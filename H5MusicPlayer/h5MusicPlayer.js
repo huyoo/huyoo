@@ -1,5 +1,5 @@
 /**
- * author: hy
+ * author: 黄豆子
  * decs: musicPlayer
  * time: 2017/12/17
  */
@@ -29,11 +29,6 @@
         menu = $("#menu"),upload = $("#upload")[0],ifBool = false, volI = true;
 
     var songList = [{
-        url: "music/鶖红陌夏.mp3",
-        name: "鶖红陌夏",
-        image: "img/6624557558467104.jpg",
-        singer: "霹雳英雄"
-    },{
         url: "music/时光(Piano Version).mp3",
         name: "时光(Piano Version)",
         image: "img/1221233.jpg",

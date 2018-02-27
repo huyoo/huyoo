@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div>
+        <textarea id="input" cols="60" rows="20" >2432
+2341
+</textarea>
+        <button id="textareaGet">create</button>
+    </div>
+    <div>
+        <textarea id="output" cols="60" rows="20"></textarea>
+        <span>已复制到剪切板</span>
+    </div>
+<script>
+    var inputTxt = document.getElementById('textareaGet'),
+        output = document.getElementById('output');
+    var data, str = '';
+
+    function init( arams) {
+        
+    }
+
+    inputTxt.onclick = function () {
+        var input = document.getElementById('input').value;
+        data = input.split(/\n/);
+        for(var i in data){
+            if (data[i])
+                str = str + "'" + data[i] +"',\n";
+        }
+        output.value = str;
+        str = '';
+    };
+
+    output.onclick = function () {
+        this.select();
+        document.execCommand('Copy');
+        //console.log(data);
+    };
+    //console.log(data);
+</script>
+</body>
+</html>

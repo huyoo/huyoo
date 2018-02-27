@@ -29,12 +29,12 @@ ul{
     line-height: 40px;
     background-color: #1c2b36;
 }
-.aside-menu > li >a{
+.aside-menu li a{
     display: block;
     padding-left: 25px;
     cursor: pointer;
 }
-.aside-menu > li >a:hover{
+.aside-menu li a:hover{
     background-color: #16232d;
     color: white;
 }
