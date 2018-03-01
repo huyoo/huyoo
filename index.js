@@ -1,3 +1,4 @@
+
 (function () {
     var date,
         menuDate = document.getElementById("menuDate"),
@@ -17,8 +18,7 @@
             targ = menuMsc.children[0].children[2],
             targClass = targ.className;
 
-        targ.className = targ
-        Class.replace('fa-plus','fa-minus');
+        targ.className = targClass.replace('fa-plus','fa-minus');
         console.log(targ.className);
 
         status.hidden = !status.hidden;
