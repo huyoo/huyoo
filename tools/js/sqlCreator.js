@@ -5,8 +5,8 @@ var data, str = '';
 
 input.onblur = function () {
     data = str = '';
-    var input = this.value;
-    data = input.split(/\n/);
+    var content = this.value;
+    data = content.split(/\n/);
     for(var i in data){
         if (data[i])
             if (data[i].length === 9) data[i] = "0"+data[i];
@@ -18,7 +18,13 @@ input.onblur = function () {
 output.onclick = function () {
     this.select();
     document.execCommand('Copy');
-    document.getElementById('tips').style.display = "block";
+    var tips = document.getElementById('tips');
+    tips.style.animation = 'tip_anim 2s';
+    tips.style.webkitAnimation = 'tip_anim 2s';
+    setTimeout(function(){
+        tips.style.animation = '';
+        tips.style.webkitAnimation = '';
+    },2000);
 };
 
 (function () {
@@ -53,9 +59,13 @@ output.onclick = function () {
         output.value = list.noSend5 + str.slice(0,str.length-2) + "\n)";
     };
 
-
     editor.onclick = function () {
-        editorBox.style.display = editorBox.style.display ? "" : "none";
+        if (!editorBox.style.height || editorBox.style.height === '0px') {
+            editorBox.style.height = '230px';
+        }else {
+            editorBox.style.height = '0';
+        }
+        editorBox.style.transition = 'height .5s';
     };
 
     act.onclick = function () {
