@@ -17,11 +17,8 @@
         var status = document.getElementById('menuMscCont'),
             targ = menuMsc.children[0].children[2],
             targClass = targ.className;
-
-        targ.className = targClass.replace('fa-plus','fa-minus');
-        console.log(targ.className);
-
+        targ.className = targClass.match(/fa-plus/) ?
+            targClass.replace('fa-plus','fa-minus') : targClass.replace('fa-minus','fa-plus');
         status.hidden = !status.hidden;
     };
 })();
-

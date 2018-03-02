@@ -48,7 +48,9 @@ ul{
     font-size: 18px;
     color: #96abbb;
 }
-
+.menu_msc_cont > ul >li > a > span{
+    margin-left: 40px;
+}
 /**  通用样式 **/
 .mag-right-20{
     margin-right: 20px;
