@@ -12,7 +12,7 @@ input.onblur = function () {
             if (data[i].length === 9) data[i] = "0"+data[i];
             str = str + "'" + data[i] +"',\n";
     }
-    output.value = str;
+    output.value = str.slice(0, str.length-2);
 };
 
 output.onclick = function () {
@@ -76,7 +76,7 @@ output.onclick = function () {
                 checkedArr[checkedArr.length] = inputArr[i].value;
             }
         }
-        output.value = sqlJoint(str, checkedArr);
+        output.value = sqlJoint(str.slice(0, str.length-2), checkedArr);
     };
     clean.onclick = function () {
         input.value = output.value = "";
