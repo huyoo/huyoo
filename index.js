@@ -19,6 +19,6 @@
             targClass = targ.className;
         targ.className = targClass.match(/fa-plus/) ?
             targClass.replace('fa-plus','fa-minus') : targClass.replace('fa-minus','fa-plus');
-        status.hidden = !status.hidden;
+        status.style.display = status.style.display === 'block'? 'none': 'block';
     };
 })();

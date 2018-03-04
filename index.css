@@ -48,6 +48,9 @@ ul{
     font-size: 18px;
     color: #96abbb;
 }
+.menu_msc_cont{
+    display: none;
+}
 .menu_msc_cont > ul >li > a > span{
     margin-left: 40px;
 }
