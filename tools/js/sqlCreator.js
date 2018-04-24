@@ -32,7 +32,7 @@ output.onclick = function () {
         item = document.getElementById("item"),
         noAndItem = document.getElementById("noAndItem"),
         item5 = document.getElementById("item5"),
-        noSend5 = document.getElementById('noSend5'),
+        orders = document.getElementById('orders2item'),
         editor = document.getElementById("editor"),
         editorBox = document.getElementById("editorBox"),
         act  = document.getElementById("act"),
@@ -52,11 +52,18 @@ output.onclick = function () {
     };
 
     item5.onclick = function () {
-        output.value = list.item5 + str.slice(0,str.length-2) + "\n)";
+        output.value = list.noSend5 + str.slice(0,str.length-2) + "\n)\n" +
+            list.item5 + str.slice(0,str.length-2) + "\n)";
+
     };
     
-    noSend5.onclick = function () {
-        output.value = list.noSend5 + str.slice(0,str.length-2) + "\n)";
+    // noSend5.onclick = function () {
+    //     output.value = list.noSend5 + str.slice(0,str.length-2) + "\n)";
+    // };
+
+    orders.onclick = function () {
+        output.value = list.delItem + str.slice(0,str.length-2) + "\n)\n" +
+            list.orders + str.slice(0,str.length-2) + "\n)";
     };
 
     editor.onclick = function () {
@@ -146,6 +153,23 @@ var list = {
         "qinterface_status = 90, qorder_status = 'S', qerror_bank_code = 'XP217',\n" +
         "qerror_code_desc = '银行交易成功', qerror_code_txt = '银行交易成功', qerror_erp_code = 'XP217'\n" +
         "where qtrans_id IN(\n",
+    orders : "INSERT INTO PaymentOrderItems(\n" +
+    "[Id],[TransId],[CompanyCode],[PayingBanks],[RecipientBanks],[PaymentAccount],[PaymentUnitName],[RecipientAccount],[RecipientAccountName],[RecipientBankCode],[RecipientBankName],[CompanyId],[PayingBankId],[CurrencyCode],[Money],[StandardMoney],[PaymentBankCode],[PaymentBankNo],[PaymentProvince],\n" +
+    "[PaymentAccountCity],[RecipientAccountCountry],[RecipientAccountProvinceCode],[RecipientAccountProvince],[RecipientAccountCity],[BankDistrictCode],[FundType],[Level],[PayingDate],[LoanFlag],[PaymentNo],[Summary],[UseCn],[Postscript],[RecordingRate],[BusinessCode],[RelatedBusinessCode],[AccountingYear],[VoucherType],[VoucherCode],[VoucherItemCode],[AccountCode],[CombiedSummary],\n" +
+    "[CombinedPostscript],[CombinedUseCn],[BusiCode],[BusiNo],[ReferenceNo],[Sender],[DataSourceSystem],[DataSourceCode],[MessageId],[MsgCode],[PayType],[Balber],[Sysioflg],[Issamectiy],[ToPersonnel],[ForeignCurrency],[OffshoreRate],[LargeMark],[PayForAnother],[SendDate],[SendTime],[PackageNo],\n" +
+    "[PackageSequence],[Change],[InterfaceStatus],[ErrorErpCode],[ErrorBankCode],[ErrorCodeDesc],[TransCode],[BankRetCode],[BankSerialNum],[BankOrderNo],[BankTransStatus],[TransStatus],[SendStatus],[BankStatus],[OrderStatus],[DetailNo],[CDetailNo],[ErpStatus],[ErpDesc],[TaskGroup],[SourceType],\n" +
+    "[DataType],[DataTxT],[ExPackNo],[ExPackageSequence],[TaskNo],[FundArrangeCode],[IsLocked],[InputType],[Remark],[Sequence],[IsFreeze],[Creator],[CreateTime],[Editor],[EditTime],[OldPackageNo],[PaymentCountry],[PaymentBankName],[SwiftCode]\n" +
+    ")\n" +
+    "SELECT [Id],[TransId],[CompanyCode],[PayingBanks],[RecipientBanks],[PaymentAccount],[PaymentUnitName],[RecipientAccount],[RecipientAccountName],[RecipientBankCode],\n" +
+    "[RecipientBankName],[CompanyId],[PayingBankId],[CurrencyCode],[Money],[StandardMoney],[PaymentBankCode],[PaymentBankNo],[PaymentProvince],[PaymentAccountCity],[RecipientAccountCountry],[RecipientAccountProvinceCode],[RecipientAccountProvince],[RecipientAccountCity],\n" +
+    "[BankDistrictCode],[FundType],[Level],[PayingDate],[LoanFlag],[PaymentNo],[Summary],[UseCn],[Postscript],[RecordingRate],[BusinessCode],[RelatedBusinessCode],[AccountingYear],[VoucherType],[VoucherCode],[VoucherItemCode],[AccountCode],[CombiedSummary],[CombinedPostscript],\n" +
+    "[CombinedUseCn],[BusiCode],[BusiNo],[ReferenceNo],[Sender],[DataSourceSystem],[DataSourceCode],[MessageId],[MsgCode],[PayType],[Balber],[Sysioflg],[Issamectiy],[ToPersonnel],[ForeignCurrency],[OffshoreRate],[LargeMark],[PayForAnother],[SendDate],[SendTime],[PackageNo],[PackageSequence],\n" +
+    "[Change],[InterfaceStatus],[ErrorErpCode],[ErrorBankCode],[ErrorCodeDesc],[TransCode],[BankRetCode],[BankSerialNum],[BankOrderNo],[BankTransStatus],[TransStatus],[SendStatus],[BankStatus],[OrderStatus],[DetailNo],[CDetailNo],[ErpStatus],[ErpDesc],[TaskGroup],[SourceType],\n" +
+    "[DataType],[DataTxT],[ExPackNo],[ExPackageSequence],[TaskNo],[FundArrangeCode],[IsLocked],[InputType],[Remark],[Sequence],[IsFreeze],[Creator],[CreateTime],[Editor],[EditTime],[OldPackageNo],[PaymentCountry],[PaymentBankName],[SwiftCode]\n" +
+    " FROM PaymentOrders\n" +
+    " where PaymentOrders.TransId IN(\n",
+    delItem: "DELETE FROM PaymentOrderItems\n" +
+        "WHERE dbo.PaymentOrderItems.TransId IN (\n",
 };
 
 function sqlJoint() {
