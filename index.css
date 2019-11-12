@@ -1,63 +1,138 @@
 /* app css stylesheet */
-*{
+* {
     margin: 0;
     padding: 0;
 }
-a{
+
+body {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    background-color: #fff;
+    -webkit-font-feature-settings: 'tnum', "tnum";
+    font-feature-settings: 'tnum', "tnum";
+}
+
+a {
     color: #96abbb;
     text-decoration: none;
     cursor: pointer;
 }
-ul{
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("static/img/frosted.bg.jpg");
+}
+
+.container {
+    position: relative;
+    transition: top 1s;
+}
+
+.container > div {
+    height: 100vh;
+}
+
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.summary > div {
+    flex-grow: 1;
+    height: inherit;
+}
+
+.summary .title {
+    text-align: right;
+}
+
+.summary .title div:first-child {
+    margin-top: 24vh;
+    font: 98px serif;
+    position: relative;
+    left: 51px;
+}
+
+.summary .title .special-word {
+    position: relative;
+}
+
+.summary .title .special-word:after {
+    position: absolute;
+    width: 60px;
+    left: 0;
+    content: '鸣';
+    color: white;
+    clip-path: polygon(101% 0, 287% 100%, 78% 100%, 78% 0);
+}
+
+.summary .banner div {
+    height: inherit;
+    background-image: url("static/img/AlbertaThanksgiving_ZH-CN5899007960_1920x1080.bg.jpg");
+}
+
+
+.demo {
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.demo  .demo-box {
+    display: inline-block;
+    width: 300px;
+    height: 250px;
+    flex-grow: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: white 7px solid;
+    margin: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 0 3px;
+}
+.demo-box img{
+    width: 300px;
+    height: auto;
+}
+
+
+.menu {
+    position: fixed;
+    top: 30%;
     list-style: none;
 }
-.index-aside{
-    float: left;
-}
-.index-view{
-    margin-left: 210px;
-    float: left;
-}
-/** 侧边栏样式 **/
-.aside-menu {
-    position: fixed;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    font-family: "FontAwesome", "微软雅黑", sans-serif;
-    font-size: 14px;
-    line-height: 40px;
-    background-color: #1c2b36;
-}
-.aside-menu li a{
-    display: block;
-    padding-left: 25px;
+
+.menu li {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.35);
     cursor: pointer;
 }
-.aside-menu li a:hover{
-    background-color: #16232d;
-    color: white;
+
+.menu li:before {
+    content: '';
+    width: 8px;
+    height: 11px;
+    display: inline-block;
+    margin-right: 8px;
 }
-.aside-menu-tips{
-    padding-left: 15px;
-    font-size: 12px;
-    color: #5c798f;
+
+.menu li:not([class='active']):hover {
+    color: rgba(0, 0, 0, 0.65);
 }
-.aside-menu-head{
-    padding-left: 20px;
-    font-size: 18px;
-    color: #96abbb;
+
+.menu li[class='active'] {
+    color: rgba(0, 0, 0, 0.75);
 }
-.menu_msc_cont{
-    display: none;
+
+.menu li[class='active']:before {
+    background-color: #F59F70;
 }
-.menu_msc_cont > ul >li > a > span{
-    margin-left: 40px;
-}
-/**  通用样式 **/
-.mag-right-20{
-    margin-right: 20px;
-}
-.mag-right-10{
-    margin-right: 10px;
-}
+
