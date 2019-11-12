@@ -1,0 +1,40 @@
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.summary > div {
+    flex-grow: 1;
+    height: inherit;
+}
+
+.summary .title {
+    text-align: right;
+}
+
+.summary .title div:first-child {
+    margin-top: 24vh;
+    font: 98px serif;
+    position: relative;
+    left: 51px;
+}
+
+.summary .title .special-word {
+    position: relative;
+}
+
+.summary .title .special-word:after {
+    position: absolute;
+    width: 60px;
+    left: 0;
+    content: '鸣';
+    color: white;
+    clip-path: polygon(101% 0, 287% 100%, 78% 100%, 78% 0);
+}
+
+.summary .banner div {
+    height: inherit;
+    background-image: url("../img/AlbertaThanksgiving_ZH-CN5899007960_1920x1080.bg.jpg");
+}

@@ -1,0 +1,24 @@
+.demo {
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.demo  .demo-box {
+    display: inline-block;
+    margin: 3px;
+    width: 300px;
+    height: 250px;
+    flex-grow: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: white 7px solid;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 0 3px;
+    background-color: white;
+}
+.demo-box img{
+    width: 300px;
+    height: auto;
+}
