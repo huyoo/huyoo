@@ -1,29 +1,10 @@
 (function (window) {
-    // var date,
-    //     menuDate = document.getElementById("menuDate"),
-    //     menuTime = document.getElementById("menuTime");
-    // function menu() {
-    //     date = new Date();
-    //     menuDate.innerHTML = date.getFullYear().toString()+"/" +
-    //         (date.getMonth()+1)+ "/"+ date.getDate();
-    //     menuTime.innerHTML =  date.getHours().toString() +" : "+
-    //         date.getMinutes()+ " : "+ date.getSeconds();
-    // };
-    // // window.setInterval(menu,500);
-    //
-    // var menuMsc = document.getElementById('menuMsc');
-    // menuMsc.onclick = function () {
-    //     var status = document.getElementById('menuMscCont'),
-    //         targ = menuMsc.children[0].children[2],
-    //         targClass = targ.className;
-    //     targ.className = targClass.match(/fa-plus/) ?
-    //         targClass.replace('fa-plus','fa-minus') : targClass.replace('fa-minus','fa-plus');
-    //     status.style.display = status.style.display === 'block'? 'none': 'block';
-    // };
+    init();
+
     const MENU_LIST = ['Home', "Demo", "About"],
         container = document.getElementsByClassName('container')[0],
         menu = document.getElementById('menu');
-    let currentIndex = 1;
+    let currentIndex = 0;
 
     menu.onclick = function (ev) {
         console.log(ev);
@@ -62,6 +43,34 @@
             menu.children[currentIndex].className = 'active'
         }
     }
+
+    function init() {
+        let banner = document.getElementsByClassName('banner');
+        banner[0].children[0].style.backgroundImage = `url("${window.location.host.includes('localhost') ? '/huyoo.github.io' : ''}/static/img/AlbertaThanksgiving_ZH-CN5899007960_1920x1080.bg.jpg")`;
+    }
+
+
+    // var date,
+    //     menuDate = document.getElementById("menuDate"),
+    //     menuTime = document.getElementById("menuTime");
+    // function menu() {
+    //     date = new Date();
+    //     menuDate.innerHTML = date.getFullYear().toString()+"/" +
+    //         (date.getMonth()+1)+ "/"+ date.getDate();
+    //     menuTime.innerHTML =  date.getHours().toString() +" : "+
+    //         date.getMinutes()+ " : "+ date.getSeconds();
+    // };
+    // // window.setInterval(menu,500);
+    //
+    // var menuMsc = document.getElementById('menuMsc');
+    // menuMsc.onclick = function () {
+    //     var status = document.getElementById('menuMscCont'),
+    //         targ = menuMsc.children[0].children[2],
+    //         targClass = targ.className;
+    //     targ.className = targClass.match(/fa-plus/) ?
+    //         targClass.replace('fa-plus','fa-minus') : targClass.replace('fa-minus','fa-plus');
+    //     status.style.display = status.style.display === 'block'? 'none': 'block';
+    // };
 })(window);
 
 
