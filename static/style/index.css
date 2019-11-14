@@ -58,6 +58,7 @@ body {
     position: relative;
     left: 51px;
     height: 92px;
+    line-height: 92px;
     animation: titleUpIn 3s;
 }
 
@@ -68,10 +69,11 @@ body {
 .summary .title .special-word:after {
     position: absolute;
     width: 60px;
-    left: 0;
+    left: 0px;
     content: '鸣';
     color: white;
-    clip-path: polygon(101% 0, 287% 100%, 78% 100%, 78% 0);
+    clip-path: polygon(101% 0, 365% 100%, 78% 100%, 78% 0);
+    clip: rect(0px 98px 101px 46px);
 }
 
 .summary .banner div {

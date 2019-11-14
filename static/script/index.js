@@ -53,7 +53,7 @@
     //节流函数
     function throttle(fn){
         return function (){
-            window.setTimeout(fn, 1000)
+            window.setTimeout(fn, 50)
         }
     }
 
