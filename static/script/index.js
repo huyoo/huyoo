@@ -42,8 +42,7 @@
         }
     }
 
-    //第二屏图片懒加载
-
+    //第二屏图片延迟加载
     function delayLoad(){
         const imgs = document.getElementsByClassName('demo')[0].querySelectorAll('img');
 
