@@ -1,6 +1,4 @@
 (function (window) {
-    // window.onload = init;
-
     const MENU_LIST = ['Home', "Demo", "About"],
         container = document.getElementsByClassName('container')[0],
         menu = document.getElementById('menu');
@@ -44,10 +42,23 @@
         }
     }
 
-    function init() {
-        let banner = document.getElementsByClassName('banner');
-        banner[0].children[0].style.backgroundImage = `url("${window.location.host.includes('localhost') ? '/huyoo.github.io' : ''}/static/img/AlbertaThanksgiving_ZH-CN5899007960_1920x1080.jpg")`;
+    //第二屏图片懒加载
+
+    function delayLoad(){
+        const imgs = document.getElementsByClassName('demo')[0].querySelectorAll('img');
+
+        imgs.forEach(img => {
+            img.src = img.getAttribute("imgPath")
+        });
     }
+    //节流函数
+    function throttle(fn){
+        return function (){
+            window.setTimeout(fn, 1000)
+        }
+    }
+
+    window.onload = throttle(delayLoad);
 })(window);
 
 
