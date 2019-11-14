@@ -1,5 +1,5 @@
 (function (window) {
-    init();
+    window.onload = init;
 
     const MENU_LIST = ['Home', "Demo", "About"],
         container = document.getElementsByClassName('container')[0],
