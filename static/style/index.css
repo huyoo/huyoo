@@ -3,251 +3,100 @@
     padding: 0;
 }
 
-body {
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-variant: tabular-nums;
-    line-height: 1.5;
-    background-color: #fff;
-    -webkit-font-feature-settings: 'tnum', "tnum";
-    font-feature-settings: 'tnum', "tnum";
-}
-
-a {
-    color: #96abbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-body {
+.body-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
     height: 100vh;
-    overflow: hidden;
-    background-image: url("../img/frosted.bg.jpg");
+    background-image: linear-gradient(45deg, rgba(252, 53, 76, .8), rgba(10, 191, 188, .8));
 }
 
 .container {
-    position: relative;
-    transition: top 1s;
-}
-
-.container > div {
-    height: 100vh;
-    overflow: hidden;
-}
-
-/**************** summary**********************/
-.summary {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
-.summary > div:first-child {
-    flex-grow: 0.8;
-    height: inherit;
-}
-
-.summary .title {
-    text-align: right;
-}
-
-.summary .title div:first-child {
-    margin-top: 24vh;
-    font: 98px serif;
-    position: relative;
-    left: 51px;
-    height: 92px;
-    line-height: 92px;
-    animation: titleUpIn 3s;
-}
-
-.summary .title .special-word {
-    position: relative;
-}
-
-.summary .title .special-word:after {
-    position: absolute;
-    width: 60px;
-    left: 0px;
-    content: '鸣';
-    color: white;
-    clip-path: polygon(101% 0, 365% 100%, 78% 100%, 78% 0);
-    clip: rect(0px 98px 101px 46px);
-}
-
-.summary .banner {
+.container .title-container {
     flex-grow: 1;
-    height: inherit;
+    height: 100vh;
 }
 
-.summary .banner div {
-    height: inherit;
-    background-image: url("../img/AlbertaThanksgiving_ZH-CN5899007960_1920x1080.jpg");
-    background-size: cover;
-}
-
-.summary .bar {
-    display: inline-block;
-    width: 230px;
-    height: 3px;
-    background-color: #fb894a;
-    animation: barMove 2s;
-}
-
-.summary .tips {
-    animation: tipsDownIn 4s;
-}
-
-.summary .extraLink {
-    animation: extraLinkDownIn 6s;
-}
-
-/*显示条滑动*/
-@keyframes barMove {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 230px;
-    }
-}
-
-/*文字上浮*/
-@keyframes titleUpIn {
-    0% {
-        top: 92px;
-        display: none;
-        opacity: 0;
-    }
-    50% {
-        display: none;
-        opacity: 0;
-    }
-    100% {
-        top: 0;
-        display: block;
-        opacity: 1;
-    }
-}
-
-/*小文字下滑*/
-@keyframes tipsDownIn {
-    0% {
-        top: -22px;
-        display: none;
-        opacity: 0;
-    }
-    50% {
-        display: none;
-        opacity: 0;
-    }
-    100% {
-        top: 0;
-        display: block;
-        opacity: 1;
-    }
-}
-
-@keyframes extraLinkDownIn {
-    0% {
-        top: -22px;
-        display: none;
-        opacity: 0;
-    }
-    50% {
-        display: none;
-        opacity: 0;
-    }
-    100% {
-        top: 0;
-        display: block;
-        opacity: 1;
-    }
-}
-
-
-/****************** demo ***********************/
-.demo {
-    margin-left: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    flex-wrap: wrap;
-    padding-left: 8px;
-    overflow: hidden;
-}
-
-.demo >div> div {
-    width: 1500px;
-}
-
-.demo .demo-box {
-    display: inline-block;
-    margin: 3px;
-    width: 400px;
-    height: 200px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border: white 7px solid;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 0 3px;
-    background-color: white;
-}
-
-.demo .demo-box:hover {
-    box-shadow: rgba(0, 0, 0, 0.55) 0 0 6px;
-    height: 250px;
-}
-
-.demo-box img {
-    width: auto;
-    height: 500px;
-}
-.demo-box .demoName{
-    height: 50px;
-    width: 200px;
-    margin: 0 auto;
-    line-height: 31px;
-    background-color: #fb894a;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-}
-.demo-box .demoName span:last-child{
-    float: right;
-    cursor: pointer;
-}
-
-/********************* menu **************************/
-.menu {
-    position: fixed;
+.container .title-container > div {
+    width: 60px;
+    height: 100px;
+    position: relative;
     top: 30%;
-    list-style: none;
+    font-size: 44px;
+    color: black;
+    font-weight: bolder;
+    transform: rotateZ(90deg);
 }
 
-.menu li {
-    margin-bottom: 30px;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.35);
-    cursor: pointer;
+.container .content-container {
+    flex-grow: 5;
+    height: 100vh;
 }
 
-.menu li:before {
-    content: '';
-    width: 8px;
-    height: 11px;
+.content-box {
+    position: relative;
+    z-index: 100;
+    margin: 20px 30px;
+    height: 93vh;
+    overflow: hidden;
+}
+
+.content-box .container-bg {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -15px;
+    width: 100vw;
+    height: calc(100vh - 30px);
+    background-color: rgba(0, 0, 0, .2);
+    filter: blur(10px);
+}
+
+.demoBox {
+    margin: 8px 16px;
+    position: relative;
+    z-index: 999;
+}
+
+.box {
     display: inline-block;
+    width: 210px;
+    height: 280px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
     margin-right: 8px;
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255, .9);
 }
 
-.menu li:not([class='active']):hover {
-    color: rgba(0, 0, 0, 0.65);
+.box header {
+    height: 30px;
+    padding: 8px;
+    font-size: 20px;
 }
 
-.menu li[class='active'] {
-    color: rgba(0, 0, 0, 0.75);
+.box div {
+    height: 190px;
+    border-bottom: rgba(255, 255, 255, .1) solid 1px;
+    border-top: rgba(255, 255, 255, .1) solid 1px;
+    margin: 0 8px;
+    word-break: break-word;
+    color: rgba(255, 255, 255, .7);
 }
 
-.menu li[class='active']:before {
-    background-color: #fb894a;
+.box footer {
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size: 24px;
+}
+
+.box footer a {
+    text-decoration: none;
+    float: right;
+    color: white;
 }
