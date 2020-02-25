@@ -9,12 +9,65 @@
   <meta name="description" content="Web site created using create-react-app"/>
   <link rel="apple-touch-icon" href="./logo192.png"/>
   <link rel="manifest" href="./manifest.json"/>
-  <title>DevelopHelper</title>
+  <title>AntdDevelopHelper</title>
+  <style>#loading .loading-center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    animation: roll infinite 1s
+  }
+
+  #loading .point {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 50% 50% 50% 50%
+  }
+
+  #loading .point:nth-child(2n+0) {
+    margin-right: 0
+  }
+
+  #loading .point-top-left {
+    background-color: #2281f5
+  }
+
+  #loading .point-top-right {
+    background-color: #f53998
+  }
+
+  #loading .point-bottom-left {
+    background-color: #1d956c
+  }
+
+  #loading .point-bottom-right {
+    background-color: #d9761e
+  }
+
+  @keyframes roll {
+    100% {
+      transform: rotate(360deg)
+    }
+  }</style>
   <link href="./static/css/1.f8f336d9.chunk.css" rel="stylesheet">
-  <link href="./static/css/main.9f0095be.chunk.css" rel="stylesheet">
+  <link href="./static/css/main.50250398.chunk.css" rel="stylesheet">
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="loading">
+  <div class="loading-center-absolute">
+    <div class="point point-top-left"></div>
+    <div class="point point-top-right"></div>
+    <div class="point point-bottom-left"></div>
+    <div class="point point-bottom-right"></div>
+  </div>
+</div>
 <div id="root"></div>
 <script>!function (l) {
 	function e(e) {
@@ -74,7 +127,7 @@
 	var s = n;
 	a()
 }([])</script>
-<script src="./static/js/1.6ece3683.chunk.js"></script>
-<script src="./static/js/main.26c621d5.chunk.js"></script>
+<script src="./static/js/1.72b2b278.chunk.js"></script>
+<script src="./static/js/main.a20588a3.chunk.js"></script>
 </body>
 </html>
