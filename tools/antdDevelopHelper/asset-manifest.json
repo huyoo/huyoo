@@ -1,10 +1,15 @@
 {
-  "main.css": "/static/css/main.50250398.chunk.css",
-  "main.js": "/static/js/main.a20588a3.chunk.js",
-  "static/css/1.f8f336d9.chunk.css": "/static/css/1.f8f336d9.chunk.css",
-  "static/js/1.72b2b278.chunk.js": "/static/js/1.72b2b278.chunk.js",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "index.html": "/index.html",
-  "precache-manifest.bbabb2c4bac58cd1ce88eeb8c4199046.js": "/precache-manifest.bbabb2c4bac58cd1ce88eeb8c4199046.js",
-  "service-worker.js": "/service-worker.js"
+  "static/css/0.58024a0d.chunk.css": "/react-visual-editor/static/css/0.58024a0d.chunk.css",
+  "static/js/0.42bd42fd.chunk.js": "/react-visual-editor/static/js/0.42bd42fd.chunk.js",
+  "main.css": "/react-visual-editor/static/css/main.7e4472d8.chunk.css",
+  "main.js": "/react-visual-editor/static/js/main.5cb122cc.chunk.js",
+  "static/css/2.3f2c03a1.chunk.css": "/react-visual-editor/static/css/2.3f2c03a1.chunk.css",
+  "static/js/2.d7e710bf.chunk.js": "/react-visual-editor/static/js/2.d7e710bf.chunk.js",
+  "static/css/3.13d0ea56.chunk.css": "/react-visual-editor/static/css/3.13d0ea56.chunk.css",
+  "static/js/3.516c77be.chunk.js": "/react-visual-editor/static/js/3.516c77be.chunk.js",
+  "static/js/4.c7e6d729.chunk.js": "/react-visual-editor/static/js/4.c7e6d729.chunk.js",
+  "runtime~main.js": "/react-visual-editor/static/js/runtime~main.c65cb3af.js",
+  "index.html": "/react-visual-editor/index.html",
+  "precache-manifest.5e4b5040a38260947a2c1fdaa5ffdc58.js": "/react-visual-editor/precache-manifest.5e4b5040a38260947a2c1fdaa5ffdc58.js",
+  "service-worker.js": "/react-visual-editor/service-worker.js"
 }
