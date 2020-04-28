@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-visual-editor/precache-manifest.5e4b5040a38260947a2c1fdaa5ffdc58.js"
+  "/tools/antdDevelopHelper/precache-manifest.abfddc1cc23c1b38cf2191b8ac2f8ca1.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/react-visual-editor/index.html", {
+workbox.routing.registerNavigationRoute("/tools/antdDevelopHelper/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

@@ -1,15 +1,15 @@
 {
-  "static/css/0.58024a0d.chunk.css": "/react-visual-editor/static/css/0.58024a0d.chunk.css",
-  "static/js/0.42bd42fd.chunk.js": "/react-visual-editor/static/js/0.42bd42fd.chunk.js",
-  "main.css": "/react-visual-editor/static/css/main.7e4472d8.chunk.css",
-  "main.js": "/react-visual-editor/static/js/main.5cb122cc.chunk.js",
-  "static/css/2.3f2c03a1.chunk.css": "/react-visual-editor/static/css/2.3f2c03a1.chunk.css",
-  "static/js/2.d7e710bf.chunk.js": "/react-visual-editor/static/js/2.d7e710bf.chunk.js",
-  "static/css/3.13d0ea56.chunk.css": "/react-visual-editor/static/css/3.13d0ea56.chunk.css",
-  "static/js/3.516c77be.chunk.js": "/react-visual-editor/static/js/3.516c77be.chunk.js",
-  "static/js/4.c7e6d729.chunk.js": "/react-visual-editor/static/js/4.c7e6d729.chunk.js",
-  "runtime~main.js": "/react-visual-editor/static/js/runtime~main.c65cb3af.js",
-  "index.html": "/react-visual-editor/index.html",
-  "precache-manifest.5e4b5040a38260947a2c1fdaa5ffdc58.js": "/react-visual-editor/precache-manifest.5e4b5040a38260947a2c1fdaa5ffdc58.js",
-  "service-worker.js": "/react-visual-editor/service-worker.js"
+  "static/css/0.58024a0d.chunk.css": "/tools/antdDevelopHelper/static/css/0.58024a0d.chunk.css",
+  "static/js/0.084ff4b7.chunk.js": "/tools/antdDevelopHelper/static/js/0.084ff4b7.chunk.js",
+  "main.css": "/tools/antdDevelopHelper/static/css/main.7e4472d8.chunk.css",
+  "main.js": "/tools/antdDevelopHelper/static/js/main.2073d2bf.chunk.js",
+  "static/css/2.3f2c03a1.chunk.css": "/tools/antdDevelopHelper/static/css/2.3f2c03a1.chunk.css",
+  "static/js/2.d7e710bf.chunk.js": "/tools/antdDevelopHelper/static/js/2.d7e710bf.chunk.js",
+  "static/css/3.13d0ea56.chunk.css": "/tools/antdDevelopHelper/static/css/3.13d0ea56.chunk.css",
+  "static/js/3.c8d28540.chunk.js": "/tools/antdDevelopHelper/static/js/3.c8d28540.chunk.js",
+  "static/js/4.c7e6d729.chunk.js": "/tools/antdDevelopHelper/static/js/4.c7e6d729.chunk.js",
+  "runtime~main.js": "/tools/antdDevelopHelper/static/js/runtime~main.d73d9fdd.js",
+  "index.html": "/tools/antdDevelopHelper/index.html",
+  "precache-manifest.abfddc1cc23c1b38cf2191b8ac2f8ca1.js": "/tools/antdDevelopHelper/precache-manifest.abfddc1cc23c1b38cf2191b8ac2f8ca1.js",
+  "service-worker.js": "/tools/antdDevelopHelper/service-worker.js"
 }
